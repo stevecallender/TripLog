@@ -5,7 +5,7 @@
     <ListView x:Name="trips">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Title} {Binding Notes}"> </TextCell>
+                <TextCell Text="{Binding Title}"> </TextCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>

@@ -3,10 +3,6 @@ namespace TripLog.Models
 {
     public class TripLogEntry
     {
-        public TripLogEntry()
-        {
-
-        }
 
         public string Title { get; set; }
         public double Latitude { get; set; }
