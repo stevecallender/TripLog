@@ -5,11 +5,14 @@
     <ListView x:Name="trips">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Title}"> </TextCell>
+                <TextCell Text="{Binding Title}" Detail="{Binding Notes}" > </TextCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
-
     
     </ContentPage.Content>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="New" Clicked="newClicked"></ToolbarItem>
+    </ContentPage.ToolbarItems>
 </ContentPage>

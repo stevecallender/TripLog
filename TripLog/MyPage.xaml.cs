@@ -48,6 +48,11 @@ namespace TripLog
 
             trips.ItemsSource = items;
         }
+
+        public void newClicked()
+        {
+            Navigation.PushAsync(new NewEntryPage());
+        }
     }
 
 }
