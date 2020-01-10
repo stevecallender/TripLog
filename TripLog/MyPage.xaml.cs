@@ -49,10 +49,12 @@ namespace TripLog
             trips.ItemsSource = items;
         }
 
-        public void newClicked(object sender, EventArgs e)
+        public void NewClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new TripLog.NewEntryPage());
         }
+
     }
+}
 
 }

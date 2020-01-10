@@ -13,6 +13,6 @@
     </ContentPage.Content>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="New" Clicked="newClicked"></ToolbarItem>
+        <ToolbarItem Text="New" Clicked="NewClicked"></ToolbarItem>
     </ContentPage.ToolbarItems>
 </ContentPage>
