@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using TripLog.Models;
 
 namespace TripLog
 {
@@ -14,9 +15,9 @@ namespace TripLog
         {
             InitializeComponent();
 
-            var items = new List<TripLog.Models.TripLogEntry> {
+            var items = new List<TripLogEntry> {
 
-                        new TripLog.Models.TripLogEntry
+                        new TripLogEntry
                         {
                         Title = "Washington Monument",
                         Notes = "Amazing!",
@@ -25,7 +26,7 @@ namespace TripLog
                         Latitude = 38.8895,
                         Longitude = -77.0352
                         },
-                        new TripLog.Models.TripLogEntry
+                        new TripLogEntry
                         {
                         Title = "Statue of Liberty",
                         Notes = "Inspiring!",
@@ -35,7 +36,7 @@ namespace TripLog
                         Longitude = -74.0444
                         },
 
-                        new TripLog.Models.TripLogEntry
+                        new TripLogEntry
                         {
                         Title = "Golden Gate Bridge",
                         Notes = "Foggy, but beautiful.",
@@ -52,6 +53,13 @@ namespace TripLog
         public void NewClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new TripLog.NewEntryPage());
+        }
+
+        public async void TripsItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var trip = (TripLogEntry)e.Item;
+            await Navigation.PushAsync(new DetailPage(trip));
+            trips.SelectedItem = null;
         }
 
     }
