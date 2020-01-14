@@ -19,7 +19,7 @@ namespace TripLog
             var note = (Note)BindingContext;
             if (String.IsNullOrWhiteSpace(note.Filename))
             {
-                var filename = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), $"{Path.GetRandomFileName()}.notes.txt");
+                var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
                 File.WriteAllText(filename, note.Text);
             }
             else
@@ -31,9 +31,8 @@ namespace TripLog
         }
 
 
-        async void OnDeleteButtonclicked(object sender, EventArgs e)
-        {
-            //might need to combine filename here because we are not using root folder
+        async void OnDeleteButtonClicked(object sender, EventArgs e)
+        {            
             var note = (Note)BindingContext;
             if (File.Exists(note.Filename))
             {
