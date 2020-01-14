@@ -62,6 +62,12 @@ namespace TripLog
             trips.SelectedItem = null;
         }
 
+        public async void NotesClicked(object sender, ItemTappedEventArgs e)
+        {           
+            await Navigation.PushAsync(new NotesPage());
+            trips.SelectedItem = null;
+        }
+
     }
 }
 

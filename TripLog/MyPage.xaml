@@ -14,5 +14,6 @@
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="New" Clicked="NewClicked"></ToolbarItem>
+        <ToolbarItem Text="Notes" Clicked="NotesClicked"/>
     </ContentPage.ToolbarItems>
 </ContentPage>

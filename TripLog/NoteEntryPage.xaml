@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TripLog.NoteEntryPage"
+             Title="Note Entry">
+    <ContentPage.Content>
+
+        <StackLayout Margin="20">
+            <Editor Placeholder="Enter your note here"
+                    Text="{Binding Text}"
+                    HeightRequest="100">
+            </Editor>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Text="Save"
+                        Clicked="OnSaveButtonClicked">
+                </Button>
+                <Button Text="Delete"
+                        Grid.Column="1"
+                        Clicked="OnDeleteButtonClicked">
+                </Button>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
