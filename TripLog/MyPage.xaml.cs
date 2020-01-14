@@ -67,6 +67,12 @@ namespace TripLog
             await Navigation.PushAsync(new NotesPage());
         }
 
+        public async void NotesViewClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new NotesView());
+        }
+
+
     }
 }
 
