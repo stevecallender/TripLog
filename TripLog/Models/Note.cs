@@ -1,4 +1,5 @@
 ﻿using System;
+using SQLite;
 namespace TripLog.Models
 {
     public class Note
@@ -6,8 +7,8 @@ namespace TripLog.Models
         public Note()
         {
         }
-
-        public String Filename { get; set; }
+        [PrimaryKey, AutoIncrement]
+        public int ID { get; set; }        
         public String Text { get; set; }
         public DateTime Date { get; set; }
     }

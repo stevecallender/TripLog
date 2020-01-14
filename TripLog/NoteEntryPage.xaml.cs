@@ -17,16 +17,8 @@ namespace TripLog
         async void OnSaveButtonClicked(object sender, EventArgs e)
         {
             var note = (Note)BindingContext;
-            if (String.IsNullOrWhiteSpace(note.Filename))
-            {
-                var filename = Path.Combine(App.FolderPath, $"{Path.GetRandomFileName()}.notes.txt");
-                File.WriteAllText(filename, note.Text);
-            }
-            else
-            {
-                File.WriteAllText(note.Filename, note.Text);
-            }
-
+            note.Date = DateTime.UtcNow;
+            await App.Database.SaveNoteAsyn(note);
             await Navigation.PopAsync();
         }
 
@@ -34,10 +26,7 @@ namespace TripLog
         async void OnDeleteButtonClicked(object sender, EventArgs e)
         {            
             var note = (Note)BindingContext;
-            if (File.Exists(note.Filename))
-            {
-                File.Delete(note.Filename);
-            }
+            await App.Database.DeleteNoteAsync(note);
             await Navigation.PopAsync();
                 
         }

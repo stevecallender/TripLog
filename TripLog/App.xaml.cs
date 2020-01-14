@@ -2,17 +2,32 @@
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TripLog.Data;
 
 namespace TripLog
 {
     public partial class App : Application
-    {
-        public static string FolderPath { get; set; }
+    { 
+
+        static NotesDatabase database;
+
+        public static NotesDatabase Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new NotesDatabase(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3"));
+                }
+
+                return database;
+            }
+        }
+
 
         public App()
         {
             InitializeComponent();
-            FolderPath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData));
             MainPage = new NavigationPage(new MyPage());
         }
 
