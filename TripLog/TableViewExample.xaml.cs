@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TripLog.Data;
 using TripLog.Models;
+using System.Collections.ObjectModel;
 
 using Xamarin.Forms;
 
@@ -9,7 +10,7 @@ namespace TripLog
 {
     public partial class TableViewExample : ContentPage
     {
-        private List<Note> notes;
+        private ObservableCollection<Note> notes;// List<Note> notes;
 
         public TableViewExample()
         {
@@ -21,7 +22,11 @@ namespace TripLog
         {
             base.OnAppearing();
 
-            notes = await App.Database.GetNotesAsync();
+            List<Note> notesList = await App.Database.GetNotesAsync();
+
+            foreach (var item in notesList)
+                notes.Add(item);
+
             items.ItemsSource = notes;
 
         }
