@@ -9,6 +9,8 @@ namespace TripLog
 {
     public partial class TableViewExample : ContentPage
     {
+        private List<Note> notes;
+
         public TableViewExample()
         {
             InitializeComponent();
@@ -19,7 +21,8 @@ namespace TripLog
         {
             base.OnAppearing();
 
-            items.ItemsSource = await App.Database.GetNotesAsync();
+            notes = await App.Database.GetNotesAsync();
+            items.ItemsSource = notes;
 
         }
 
@@ -27,7 +30,7 @@ namespace TripLog
         {
             var note = (Note)BindingContext;
             await App.Database.DeleteNoteAsync(note);
-            items.ItemsSource = await App.Database.GetNotesAsync();
+            notes.Remove(note);
             
         }
     }
