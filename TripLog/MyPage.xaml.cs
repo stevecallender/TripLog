@@ -72,6 +72,10 @@ namespace TripLog
             await Navigation.PushAsync(new NotesView());
         }
 
+        public async void TableViewExampleClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TableViewExample());
+        }
 
     }
 }

@@ -15,6 +15,7 @@
         <DataTemplate>
             <TextCell Text="{Binding Text}"
                         Detail="{Binding Date}" />
+            
         </DataTemplate>
     </ListView.ItemTemplate>
 </ListView>
