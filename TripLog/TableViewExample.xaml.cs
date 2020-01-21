@@ -13,13 +13,14 @@ namespace TripLog
     {
         //private ObservableCollection<Note> notes;// List<Note> notes;
 
-        public ObservableCollection<Note> Notes = new ObservableCollection<Note>();
+        public ObservableCollection<Note> Notes { get; set; }
 
         //public ObservableCollection<Note> Notes { get { return _Notes; } }
 
         public TableViewExample()
         {
             InitializeComponent();
+            Notes = new ObservableCollection<Note>();
 
         }
 
