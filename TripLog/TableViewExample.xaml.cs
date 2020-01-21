@@ -24,10 +24,10 @@ namespace TripLog
 
             List<Note> notesList = await App.Database.GetNotesAsync();
 
-            foreach (var item in notesList)
-                notes.Add(item);
+            //foreach (var item in notesList)
+            //    notes.Add(item);
 
-            items.ItemsSource = notes;
+            //items.ItemsSource = notes;
 
         }
 
