@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml;assembly=System" x:Class="TripLog.TableViewExample">
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"             
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml;"
+             xmlns:coll="using:System.Collections.ObjectModel;assembly=System"
+             x:Class="TripLog.TableViewExample">
 <ContentPage.Content>
     <!--
     <ListView  x:Name="items">
@@ -20,7 +23,7 @@
     </ListView>
     -->
 
-    <x:ObservableCollection x:TypeArguments="x:Object" x:Name='items'>
+    <coll:ObservableCollection x:TypeArguments="x:Note" x:Name='items'>
         <DataTemplate>
                 <ViewCell>
                     <StackLayout BackgroundColor="#eee"
@@ -33,7 +36,7 @@
                     </StackLayout>
                 </ViewCell>
             </DataTemplate>
-</x:ObservableCollection>
+</coll:ObservableCollection>
 
 </ContentPage.Content>
 </ContentPage>

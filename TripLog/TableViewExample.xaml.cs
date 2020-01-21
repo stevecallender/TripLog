@@ -4,6 +4,7 @@ using TripLog.Data;
 using TripLog.Models;
 using System.Collections.ObjectModel;
 
+
 using Xamarin.Forms;
 
 namespace TripLog
@@ -23,7 +24,7 @@ namespace TripLog
             base.OnAppearing();
 
             List<Note> notesList = await App.Database.GetNotesAsync();
-
+            
             items.ItemsSource = new ObservableCollection<Note>(notesList);
 
 
