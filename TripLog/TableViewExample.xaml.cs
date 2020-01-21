@@ -13,9 +13,9 @@ namespace TripLog
     {
         //private ObservableCollection<Note> notes;// List<Note> notes;
 
-        public ObservableCollection<Note> _Notes = new ObservableCollection<Note>();
+        public ObservableCollection<Note> Notes = new ObservableCollection<Note>();
 
-        public ObservableCollection<Note> Notes { get { return _Notes; } }
+        //public ObservableCollection<Note> Notes { get { return _Notes; } }
 
         public TableViewExample()
         {
@@ -31,9 +31,12 @@ namespace TripLog
 
             foreach (var note in notesList)
             {
-                _Notes.Add(note);
+                Notes.Add(note);
             }
+
             
+
+
             //items.ItemsSource = new ObservableCollection<Note>(notesList);
 
 
@@ -43,7 +46,7 @@ namespace TripLog
         {
             var note = (Note)BindingContext;
             await App.Database.DeleteNoteAsync(note);
-            _Notes.Remove(note);
+            Notes.Remove(note);
             
         }
     }
