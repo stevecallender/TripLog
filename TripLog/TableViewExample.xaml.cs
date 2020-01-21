@@ -10,7 +10,7 @@ namespace TripLog
 {
     public partial class TableViewExample : ContentPage
     {
-        private ObservableCollection<Note> notes;// List<Note> notes;
+        //private ObservableCollection<Note> notes;// List<Note> notes;
 
         public TableViewExample()
         {
@@ -24,10 +24,8 @@ namespace TripLog
 
             List<Note> notesList = await App.Database.GetNotesAsync();
 
-            //foreach (var item in notesList)
-            //    notes.Add(item);
+            items.ItemsSource = new ObservableCollection<Note>(notesList);
 
-            //items.ItemsSource = notes;
 
         }
 
@@ -35,7 +33,7 @@ namespace TripLog
         {
             var note = (Note)BindingContext;
             await App.Database.DeleteNoteAsync(note);
-            notes.Remove(note);
+            items.ItemsSource.Remove(note);
             
         }
     }
