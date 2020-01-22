@@ -13,7 +13,7 @@ namespace TripLog
 {
     public partial class TableViewExample : ContentPage
     {
-        //private ObservableCollection<Note> notes;// List<Note> notes;
+        /*private ObservableCollection<Note> notes;// List<Note> notes;
 
         private ObservableCollection<ObservableNoteList> _Notes = new ObservableCollection<ObservableNoteList>();
 
@@ -27,17 +27,19 @@ namespace TripLog
             
         }
 
-        
+        */
 
         //public ObservableCollection<Note> Notes { get { return _Notes; } }
 
         public TableViewExample()
         {
             InitializeComponent();
+            BindingContext = new TableViewExampleViewModel();
             //Notes = new ObservableCollection<Note>();
             
         }
 
+        /*
         protected override async void OnAppearing()
         {
             base.OnAppearing();
@@ -74,7 +76,7 @@ namespace TripLog
             Notes = temp;
 
         }
-        /*
+        
         void VisibleFeatures_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)
