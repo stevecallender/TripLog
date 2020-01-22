@@ -19,9 +19,9 @@ namespace TripLog
 
         public ObservableCollection<ObservableNoteList> Notes
         {
-            get;
+            get { return _Notes; }
 
-            set;
+            set { }
             
 
             
@@ -44,11 +44,12 @@ namespace TripLog
 
             List<Note> notesList = await App.Database.GetNotesAsync();
 
+            /*
             foreach (var note in notesList)
             {
                 Notes.Add(new ObservableNoteList(note));
             }
-
+            */
             
 
 
