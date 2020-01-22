@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TripLog.Data;
 using TripLog.Models;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 
 
 using Xamarin.Forms;
@@ -13,15 +15,27 @@ namespace TripLog
     {
         //private ObservableCollection<Note> notes;// List<Note> notes;
 
-        public ObservableCollection<Note> Notes { get; set; }
+        private ObservableCollection<ObservableNoteList> _Notes = new ObservableCollection<ObservableNoteList>();
+
+        public ObservableCollection<ObservableNoteList> Notes
+        {
+            get;
+
+            set;
+            
+
+            
+        }
+
+        
 
         //public ObservableCollection<Note> Notes { get { return _Notes; } }
 
         public TableViewExample()
         {
             InitializeComponent();
-            Notes = new ObservableCollection<Note>();
-
+            //Notes = new ObservableCollection<Note>();
+            
         }
 
         protected override async void OnAppearing()
@@ -32,7 +46,7 @@ namespace TripLog
 
             foreach (var note in notesList)
             {
-                Notes.Add(note);
+                Notes.Add(new ObservableNoteList(note));
             }
 
             
@@ -47,8 +61,27 @@ namespace TripLog
         {
             var note = (Note)BindingContext;
             await App.Database.DeleteNoteAsync(note);
-            Notes.Remove(note);
+            Notes.Remove(new ObservableNoteList(note));
             
         }
+        /*
+        void VisibleFeatures_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (e.NewItems != null)
+                foreach (ObservableNoteList item in e.NewItems)
+                    item.PropertyChanged += MyFeature_PropertyChanged;
+
+            if (e.OldItems != null)
+                foreach (ObservableNoteList item in e.OldItems)
+                    item.PropertyChanged -= MyFeature_PropertyChanged;
+        }
+
+        void MyFeature_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            // NotifyPropertyChanged() defined again elsewhere in the class
+            NotifyPropertyChanged("Notes");
+        }
+        */
+
     }
 }
