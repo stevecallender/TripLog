@@ -43,14 +43,14 @@ namespace TripLog
             base.OnAppearing();
 
             List<Note> notesList = await App.Database.GetNotesAsync();
+            ObservableCollection<ObservableNoteList> temp = new ObservableCollection<ObservableNoteList>();
 
-            /*
             foreach (var note in notesList)
-            {
-                Notes.Add(new ObservableNoteList(note));
+            {                
+                temp.Add(new ObservableNoteList(note));
             }
-            */
-            
+
+            Notes = temp;
 
 
             //items.ItemsSource = new ObservableCollection<Note>(notesList);
@@ -60,10 +60,19 @@ namespace TripLog
 
         async void OnDeleteClicked(object sender, EventArgs e)
         {
-            var note = (Note)BindingContext;
-            await App.Database.DeleteNoteAsync(note);
-            Notes.Remove(new ObservableNoteList(note));
-            
+            var noteRemoved = (Note)BindingContext;
+            await App.Database.DeleteNoteAsync(noteRemoved);
+
+            List<Note> notesList = await App.Database.GetNotesAsync();
+            ObservableCollection<ObservableNoteList> temp = new ObservableCollection<ObservableNoteList>();
+
+            foreach (var note in notesList)
+            {
+                temp.Add(new ObservableNoteList(note));
+            }
+
+            Notes = temp;
+
         }
         /*
         void VisibleFeatures_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
