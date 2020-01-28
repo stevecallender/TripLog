@@ -66,7 +66,7 @@ namespace TripLog
         {
             viewModel.OnDeleteClicked(sender, e);
 
-            var noteRemoved = (Note)BindingContext;
+            /*var  noteRemoved = (Note)BindingContext;
             await App.Database.DeleteNoteAsync(noteRemoved);
 
             List<Note> notesList = await App.Database.GetNotesAsync();
@@ -78,7 +78,7 @@ namespace TripLog
             }
 
             Notes = temp;
-
+            */
         }
         /*
         void VisibleFeatures_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
