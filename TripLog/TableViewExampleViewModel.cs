@@ -23,6 +23,7 @@ namespace TripLog
 
         private void NotifyPropertyChanged(string propertyName)
         {
+            
             if (PropertyChanged != null)
             {
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
@@ -36,7 +37,20 @@ namespace TripLog
         {
             get { return _Notes; }
 
-            set { }
+            set
+            {
+                if (_Notes != value)
+                {
+                    ObservableCollection<ObservableNoteList> temp = new ObservableCollection<ObservableNoteList>();
+
+                    foreach (var note in value)
+                    {
+                        temp.Add(note);                        
+                    }
+
+                    Notes = temp;
+                }
+            }
 
 
 
