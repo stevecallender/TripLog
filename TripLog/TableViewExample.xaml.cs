@@ -63,7 +63,7 @@ namespace TripLog
 
             */
         }
-        */
+        
         async void OnDeleteClicked(object sender, EventArgs e)
         {
             viewModel.OnDeleteClicked(sender, e);
