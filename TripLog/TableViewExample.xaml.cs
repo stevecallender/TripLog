@@ -41,11 +41,13 @@ namespace TripLog
 
         }
 
-        /*
+        
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
+            viewModel.Populate();
+            /*
             List<Note> notesList = await App.Database.GetNotesAsync();
             ObservableCollection<ObservableNoteList> temp = new ObservableCollection<ObservableNoteList>();
 
@@ -59,7 +61,7 @@ namespace TripLog
 
             //items.ItemsSource = new ObservableCollection<Note>(notesList);
 
-
+            */
         }
         */
         async void OnDeleteClicked(object sender, EventArgs e)

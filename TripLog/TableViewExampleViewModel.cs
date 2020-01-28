@@ -47,7 +47,7 @@ namespace TripLog
         //public ObservableCollection<Note> Notes { get { return _Notes; } }
 
 
-        protected async void Populate()
+        public async void Populate()
         {
 
             List<Note> notesList = await App.Database.GetNotesAsync();
