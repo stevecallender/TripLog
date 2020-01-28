@@ -13,6 +13,8 @@ namespace TripLog
 {
     public partial class TableViewExample : ContentPage
     {
+        private TableViewExampleViewModel viewModel = new TableViewExampleViewModel();
+
         /*private ObservableCollection<Note> notes;// List<Note> notes;
 
         private ObservableCollection<ObservableNoteList> _Notes = new ObservableCollection<ObservableNoteList>();
@@ -34,9 +36,9 @@ namespace TripLog
         public TableViewExample()
         {
             InitializeComponent();
-            BindingContext = new TableViewExampleViewModel();
+            BindingContext = viewModel;
             //Notes = new ObservableCollection<Note>();
-            
+
         }
 
         /*
@@ -59,9 +61,11 @@ namespace TripLog
 
 
         }
-
+        */
         async void OnDeleteClicked(object sender, EventArgs e)
         {
+            viewModel.OnDeleteClicked(sender, e);
+
             var noteRemoved = (Note)BindingContext;
             await App.Database.DeleteNoteAsync(noteRemoved);
 
@@ -76,7 +80,7 @@ namespace TripLog
             Notes = temp;
 
         }
-        
+        /*
         void VisibleFeatures_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.NewItems != null)

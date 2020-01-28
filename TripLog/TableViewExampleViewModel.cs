@@ -66,7 +66,7 @@ namespace TripLog
 
         }
 
-        async void OnDeleteClicked(object sender, EventArgs e)
+        public async void OnDeleteClicked(object sender, EventArgs e)
         {
             /*var noteRemoved = (Note)BindingContext;
             await App.Database.DeleteNoteAsync(noteRemoved);
