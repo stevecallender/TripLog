@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using TripLog.Models;
@@ -10,16 +11,26 @@ namespace TripLog
 {
     public partial class NotesView : ContentPage
     {
+
+        private ObservableCollection<Note> _observableList; 
+
         public NotesView()
         {
             InitializeComponent();
+            listView.ItemsSource = _observableList;           
         }
 
         protected override async void OnAppearing()
         {
             base.OnAppearing();
 
-            listView.ItemsSource = await App.Database.GetNotesAsync();
+            List<Note> notes = await App.Database.GetNotesAsync(); 
+
+            foreach (var note in notes)
+            {
+                _observableList.Add(note);
+            }
+
 
         }
         async void OnNoteAddedClicked(object sender, EventArgs e)
@@ -28,6 +39,11 @@ namespace TripLog
             {
                 BindingContext = new Note()
             });
+        }
+
+        void OnDeleteClicked(object sender, EventArgs e)
+        {
+            
         }
 
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)

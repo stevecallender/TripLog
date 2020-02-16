@@ -38,7 +38,6 @@ namespace TripLog
             InitializeComponent();
             BindingContext = viewModel;
             //Notes = new ObservableCollection<Note>();
-
         }
 
         

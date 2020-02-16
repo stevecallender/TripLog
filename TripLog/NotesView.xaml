@@ -13,9 +13,13 @@
             ItemSelected="OnListViewItemSelected">
     <ListView.ItemTemplate>
         <DataTemplate>
-            <TextCell Text="{Binding Text}"
-                        Detail="{Binding Date}" />
-            
+            <TextCell Text="{Binding Text}" Detail="{Binding Date}">
+                <TextCell.ContextActions>
+                    <MenuItem Text="Remove" IsDestructive="True" Clicked="OnRemovedClicked"></MenuItem>
+                </TextCell.ContextActions>
+
+
+            </TextCell>            
         </DataTemplate>
     </ListView.ItemTemplate>
 </ListView>
