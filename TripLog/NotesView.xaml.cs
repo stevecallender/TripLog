@@ -17,6 +17,14 @@ namespace TripLog
         public NotesView()
         {
             InitializeComponent();
+
+            _observableList = new ObservableCollection<Note>()
+            {
+                new Note{Text = "Test1" },
+                new Note{Text = "Test1" },
+                new Note{Text = "Test1" }
+            };
+
             listView.ItemsSource = _observableList;           
         }
 
@@ -24,12 +32,12 @@ namespace TripLog
         {
             base.OnAppearing();
 
-            List<Note> notes = await App.Database.GetNotesAsync(); 
-
-            foreach (var note in notes)
-            {
-                _observableList.Add(note);
-            }
+            //List<Note> notes = await App.Database.GetNotesAsync(); 
+            //
+            //foreach (var note in notes)
+            //{
+            //    _observableList.Add(note);
+            //}
 
 
         }
