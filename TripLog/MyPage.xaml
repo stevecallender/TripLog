@@ -16,6 +16,5 @@
         <ToolbarItem Text="New" Clicked="NewClicked"></ToolbarItem>
         <ToolbarItem Text="Notes" Clicked="NotesClicked"/>
         <ToolbarItem Text="NotesView" Clicked="NotesViewClicked"/>
-        <ToolbarItem Text="ListViewTest" Clicked="TableViewExampleClicked"/>
     </ContentPage.ToolbarItems>
 </ContentPage>

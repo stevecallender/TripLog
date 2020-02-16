@@ -15,7 +15,7 @@
         <DataTemplate>
             <TextCell Text="{Binding Text}" Detail="{Binding Date}">
                 <TextCell.ContextActions>
-                    <MenuItem Text="Remove" IsDestructive="True" Clicked="OnRemovedClicked"></MenuItem>
+                    <MenuItem Text="Remove" IsDestructive="True" Clicked="OnDeleteClicked"></MenuItem>
                 </TextCell.ContextActions>
 
 
