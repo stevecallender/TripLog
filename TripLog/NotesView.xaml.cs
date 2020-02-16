@@ -43,7 +43,7 @@ namespace TripLog
 
         void OnDeleteClicked(object sender, EventArgs e)
         {
-            
+            _observableList.Remove((sender as MenuItem).CommandParameter as Note);
         }
 
         async void OnListViewItemSelected(object sender, SelectedItemChangedEventArgs e)
