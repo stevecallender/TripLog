@@ -12,7 +12,7 @@
     </NavigationPage>
     
 
-    <local:MyPage Title="MyPage" Icon="clock@2x.png"></local:MyPage>
+    <local:MyPage Title="MyPage" Icon="clock.png"></local:MyPage>
 
 
 </TabbedPage>
