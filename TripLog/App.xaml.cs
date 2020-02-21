@@ -28,7 +28,8 @@ namespace TripLog
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MyPage());
+            MainPage = new NavPageExample();
+            //MainPage = new NavigationPage(new MyPage());
         }
 
         protected override void OnStart()
