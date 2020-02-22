@@ -14,5 +14,16 @@
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Data\" />
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Images\clock.png" />
+    <None Remove="Images\clock%402x.png" />
+    <None Remove="Images\clock%403x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Images\clock.png" />
+    <EmbeddedResource Include="Images\clock%402x.png" />
+    <EmbeddedResource Include="Images\clock%403x.png" />
   </ItemGroup>
 </Project>
